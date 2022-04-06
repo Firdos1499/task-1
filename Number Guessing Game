@@ -1,0 +1,51 @@
+// Firdos Ansari
+
+import java.util.*;
+import java.io.*;
+
+public class Main {
+
+	public static void main(String[] args) {	
+		Random rand = new Random();
+		int num = (int)(Math.random()*100);  
+		// Generating a random number between 1 to 100
+		
+		int chance = 10;
+		int cur_chance = 1;
+		
+		while(cur_chance <= chance){
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter a number between 1 to 100");  // Taking number from user
+			int gussing_num = sc.nextInt();
+			
+			if(num==gussing_num)   
+				// cheaking given num is matches the guess num
+			{
+				System.out.println("Congrats! you won");
+				System.out.println("Your number matches the random number");
+				int pts = (10- cur_chance + 1) * 10;  // Calculating the points
+				String ss = String.format("You have scored %d points", pts);
+				System.out.println(ss);
+				break;    
+			}
+			else if(gussing_num > num){   // cheaking given no is greater than num
+			    
+				System.out.println("Your number is greater than the random number");
+			}
+			else if(gussing_num < num){  // cheaking given no is less than num
+			    
+				System.out.println("Your  number is smaller than the random number");
+			}
+			
+			String ss2 = String.format("This is your %d attempt", cur_chance); 
+			
+			System.out.println(ss2);
+			String ss3 = String.format("You have %d chance left", 10- cur_chance); 
+			
+			System.out.println(ss3);
+			cur_chance = cur_chance + 1;
+		}
+		
+	}
+
+}
